@@ -120,9 +120,36 @@
 
   [2.2 COMMENT SYNTAX & ENCODING
 
-   Comments in bf.doc are not preceded by any marker and use spelled
-   out encoding without parentheses. For example
+   Comments conforming to bf.doc should follow these rules:
+   - All comments are expected to be lowercase ASCII text.
+   - If there's a character belonging to the Brainfuck command set,
+   replace it with:
+   - File-level comment belong to a comment loop, conventional for
+   other BF codebases.
+   - Block-level comments should precede the block.
+   -- Optionally, end those with a colon
+   -- Loop header comments should follow the opening bracket.
+   --- Closing bracket should have the exact same comment, but with
+   "ends" appended to it, as in "[ main loop" -> "] main loop
+   ends".
+   - Line-level comments should directly follow the code.
+   - Comments always start with a space, separating them from the
+   commands
+   - Comments always end with a newline. No comment-code mixing.
 
+   Comments use spelled out encoding without parentheses. The list of
+   characters to encode is:
+   - '+'   -> plus
+   - '-'   -> minus
+   - ','   -> comma
+   - '.'   -> dot, period
+   - '<'   -> less than, lt
+   - '>'   -> greater than, gt
+   - '[/]' -> opening bracket/closing bracket
+   - '#'   -> hash
+   - '!'   -> bang, exclamation mark
+
+   For example:
    [-] empty the character (taken from https://whatever minus website dot com)]
 
   [2.2 MEMORY LAYOUTS
