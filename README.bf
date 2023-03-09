@@ -15,7 +15,7 @@
    files, using inline commentaries and comment loops instead. Daniel
    B Christofani has gone as far as to write complex Brainfuck files
    in a literate programming style, with code and documentation for it
-   interleaved toggether. This style puts too much restrictions on the
+   interleaved together. This style puts too much restrictions on the
    prose, removing all the dots and commas.]
 
   [1.2 COMMENTS
