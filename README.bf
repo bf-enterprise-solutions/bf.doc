@@ -152,7 +152,18 @@
    For example:
    [-] empty the character (taken from https://whatever minus website dot com)]
 
-  [2.2 MEMORY LAYOUTS
+  [2.3 CODE/VERBATIM BLOCKS
+
+   All code/verbatim blocks should be wrapped into a comment loop of
+   their own, with the language/type of code as the loop header. For example:
+   [bf:
+    +[>+]]
+
+   Such a convention ensures that all the elements of the code block
+   are self-contained and clear about which language they are written
+   in.]
+
+  [2.4 MEMORY LAYOUTS
 
    Given the complexity of memory layouts that should be represented,
    bf.doc adopts an exhaustive memory representation syntax:
