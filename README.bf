@@ -182,7 +182,7 @@
    it's possible to omit the single quotes, as in
    [h][e][l][l][o] == ['h']['e']['l']['l']['o']
 
-   This syntax is quite similar to Daniel B Christofani one, but wraps
+   This syntax is quite similar to Daniel B Cristofani one, but wraps
    all cells into square brackets. Because of this, memory layout
    schemes can appear inline in the code as part of or instead of
    comment loops.]]]
