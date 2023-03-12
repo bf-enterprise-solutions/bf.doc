@@ -96,24 +96,25 @@
   [2.1 DOCUMENTATION FILES
 
    bf.doc-conformant documentation files should be written a one big
-   nested comment loop, with the title of the file following the
-   opening bracket, and (sub)section headings following their
-   respective opening brackets with section numbers prepended to
-   them. Closing brackers should follow the last word of the
-   (sub)section, and, if the (sub)section is the last in the
+   nested comment loop, with the (all caps) title of the file
+   following the opening bracket, and (all caps) (sub)section headings
+   following their respective opening brackets with section numbers
+   prepended to them. Closing brackers should follow the last word of
+   the (sub)section, and, if the (sub)section is the last in the
    document/section/subsection, then closing brackets of those should
    compound together. A small example:
 
-   [TITLE
-    ..
-    [1 SECTION ONE
-     ...
-     [1.1 SUBSECTION ONE-ONE
-      ...]
-     [1.2 SUBSECTION ONE-TWO
-      ...]]
-    [2 SECTION TWO
-     ...]]
+   [bf.doc:
+    [TITLE
+     ..
+     [1 SECTION ONE
+      ...
+      [1.1 SUBSECTION ONE-ONE
+       ...]
+      [1.2 SUBSECTION ONE-TWO
+       ...]]
+     [2 SECTION TWO
+      ...]]]
 
    Note that this document is bf.doc conformant too, so you can use it
    as an example.]
@@ -156,6 +157,7 @@
 
    All code/verbatim blocks should be wrapped into a comment loop of
    their own, with the language/type of code as the loop header. For example:
+
    [bf:
     +[>+]]
 
