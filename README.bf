@@ -7,13 +7,18 @@
  - Being readable yet concise.
  - Being intuitive enough to be easily adopted and reproduced.
 
+ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+ NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+ "OPTIONAL" in this document are to be interpreted as described in
+ RFC 2119 (https://datatracker.ietf.org/doc/html/rfc2119).
+
  [1 HISTORY OF BRAINFUCK DOCUMENTATION FORMATS
 
   [1.1 DOCUMENTATION FILES
 
    Brainfuck programmers often neglect creating separate documentation
    files, using inline commentaries and comment loops instead. Daniel
-   B Christofani has gone as far as to write complex Brainfuck files
+   B. Christofani has gone as far as to write complex Brainfuck files
    in a literate programming style, with code and documentation for it
    interleaved together. This style puts too much restrictions on the
    prose, removing all the dots and commas.]
@@ -95,13 +100,13 @@
 
   [2.1 DOCUMENTATION FILES
 
-   bf.doc-conformant documentation files should be written a one big
+   bf.doc-conformant documentation files MUST be written a one big
    nested comment loop, with the (all caps) title of the file
    following the opening bracket, and (all caps) (sub)section headings
    following their respective opening brackets with section numbers
-   prepended to them. Closing brackers should follow the last word of
+   prepended to them. Closing brackets SHOULD follow the last word of
    the (sub)section, and, if the (sub)section is the last in the
-   document/section/subsection, then closing brackets of those should
+   document/section/subsection, then closing brackets of those SHOULD
    compound together. A small example:
 
    [bf.doc:
@@ -121,25 +126,24 @@
 
   [2.2 COMMENT SYNTAX & ENCODING
 
-   Comments conforming to bf.doc should follow these rules:
-   - All comments are expected to be lowercase ASCII text.
-   - If there's a character belonging to the Brainfuck command set,
-   replace it with:
-   - File-level comment belong to a comment loop, conventional for
-   other BF codebases.
-   - Block-level comments should precede the block.
-   -- Optionally, end those with a colon
-   -- Loop header comments should follow the opening bracket.
-   --- Closing bracket should have the exact same comment, but with
+   Comments conforming to bf.doc are to follow these rules:
+   - All comments MUST be lowercase ASCII text.
+   - File-level comment MUST belong to a comment loop, conventional
+   for other BF codebases.
+   - Block-level comments SHOULD precede the block.
+   -- OPTIONALLY, end those with a colon
+   -- Loop header comments SHOULD follow the opening bracket.
+   --- Closing bracket SHOULD have the exact same comment, but with
    "ends" appended to it, as in "[ main loop" -> "] main loop
    ends".
-   - Line-level comments should directly follow the code.
-   - Comments always start with a space, separating them from the
-   commands
-   - Comments always end with a newline. No comment-code mixing.
+   - Line-level comments MUST directly follow the code.
+   - Comments (be it loop headers, block comments, or line comments)
+   SHOULD start with a space, separating them from the commands.
+   - Comments SHOULD always end with a newline. No comment-code
+     mixing.
 
-   Comments use spelled out encoding without parentheses. The list of
-   characters to encode is:
+   Comments MUST use spelled out encoding without parentheses. The
+   list of characters to encode is:
    - '+'   -> plus
    - '-'   -> minus
    - ','   -> comma
@@ -151,12 +155,15 @@
    - '!'   -> bang, exclamation mark
 
    For example:
-   [-] empty the character (taken from https://whatever minus website dot com)]
+
+   [bf:
+    [-] empty the character (taken from https://whatever minus website dot com)]]
 
   [2.3 CODE/VERBATIM BLOCKS
 
-   All code/verbatim blocks should be wrapped into a comment loop of
-   their own, with the language/type of code as the loop header. For example:
+   All code/verbatim blocks MUST be wrapped into a comment loop of
+   their own, with the language/type of code as the loop header. For
+   example:
 
    [bf:
     +[>+]]
@@ -168,7 +175,8 @@
   [2.4 MEMORY LAYOUTS
 
    Given the complexity of memory layouts that should be represented,
-   bf.doc adopts an exhaustive memory representation syntax:
+   bf.doc adopts an exhaustive memory representation syntax that MUST
+   be followed in program/library documentation:
    [0]     : a cell with a numeric value equal to the number
    ['a']   : a cell with a value equal to the char
    [a]     : a cell with a variable in it
