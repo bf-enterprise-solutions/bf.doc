@@ -42,8 +42,7 @@
    Most of those, with the notable exception of comment loop, were
    qute restrictive in what type of characters can be used, with
    Brainfuck command characters (+-<>,.[]) and debug characters (!#)
-   being impossible to use (see CONTRIBUTING file for the comment
-   conventions arising from that circumstance).
+   being impossible to use.
 
    Because of comment loops being almost unrestricted in their syntax,
    they gained a certain use, especially as a header/footer comments
@@ -89,8 +88,8 @@
    'cell
    ^cell
 
-  Both are good enough, but using apostrophes interferes with
-  character representation.]]
+   Both are good enough, but using apostrophes interferes with
+   character representation.]]
 
  [2 BF.DOC
 
@@ -140,7 +139,7 @@
    - Comments (be it loop headers, block comments, or line comments)
    SHOULD start with a space, separating them from the commands.
    - Comments SHOULD always end with a newline. No comment-code
-     mixing.
+   mixing.
 
    Comments MUST use spelled out encoding without parentheses. The
    list of characters to encode is:
