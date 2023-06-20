@@ -121,7 +121,25 @@
       ...]]]
 
    Note that this document is bf.doc conformant too, so you can use it
-   as an example.]
+   as an example.
+
+   [2.1.1 ENUMERATIONS AND NESTED LISTS IN DOCUMENTATION FILES
+
+    It's often the case that one needs to enumerate certain values or
+    list certain points when documenting the software. In such cases,
+    the most intuitive hyphen-space syntax is to be used:
+
+    - This is the first-level item. Hyphen+space starting marker.
+    - This is another first-level item, but spilling into next line:
+    Notice next line indented the same level as the non-list text.
+    -- Second-level item: two hyphens.
+    -- Second-level item long enough to spill over to the next line:
+    Notice the zero indentation again.
+    --- Third-level.
+    ---- Fourth-level.
+    - Et cetera.
+
+    See the example of the real nested list in the next section.]]
 
   [2.2 COMMENT SYNTAX & ENCODING
 
