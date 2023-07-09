@@ -139,7 +139,29 @@
     ---- Fourth-level.
     - Et cetera.
 
-    See the example of the real nested list in the next section.]]
+    See the example of the real nested list in the next section.
+
+    [2.1.1.1 ORDERED/NUMBERED LISTS
+
+     Unordered lists are only useful for small drafts and chaotic
+     notes (which is not to say these are useless, but...) Ordered
+     lists are more linkable and structured. These lists allow one to
+     refer to a certain point with a clear numeric label, which,
+     augmented by the section number, provides a robust way of linking
+     to list elements. So the syntax of the ordered lists in bf.doc is:
+     .1 Ordered lists start from 1.
+     .2 They should normally have the dot before the number.
+     3 Hovever, this dot can be dropped for readability.
+     2.1.1.1.4 This dot is an abbreviation for the section-qualified
+     item number.
+     .5 Notice the zero indentation above---same as for unordered lists.
+     .6 Having the number, one can expand it to the full
+     section-qualified reference, like 2.1.1.1.6, and use it to refer
+     to the list item from outside the document.
+
+     Having the ordered lists spelled out, one can enjoy much more
+     coherent documentation with more normative reference links to
+     point others to.]]]
 
   [2.2 COMMENT SYNTAX & ENCODING
 
