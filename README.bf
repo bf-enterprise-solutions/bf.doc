@@ -181,8 +181,9 @@
    - Comments SHOULD always end with a newline. No comment-code
    mixing.
 
-   Comments MUST use spelled out encoding without parentheses. The
-   list of characters to encode is:
+   Comments MUST use spelled out encoding without parentheses and with
+   spaces between the encoded character and surrounding text. The list
+   of characters to encode is:
    - '+'   -> plus
    - '-'   -> minus
    - ','   -> comma
