@@ -184,15 +184,15 @@
    Comments MUST use spelled out encoding without parentheses and with
    spaces between the encoded character and surrounding text. The list
    of characters to encode is:
-   - '+'   -> plus
-   - '-'   -> minus
-   - ','   -> comma
-   - '.'   -> dot, period
-   - '<'   -> less than, lt
-   - '>'   -> greater than, gt
-   - '[/]' -> opening bracket/closing bracket
-   - '#'   -> hash
-   - '!'   -> bang, exclamation mark
+   - '+'     -> plus
+   - '-'     -> minus
+   - ','     -> comma
+   - '.'     -> dot, period
+   - '<'     -> less than, lt
+   - '>'     -> greater than, gt
+   - '['/']' -> opening bracket/closing bracket
+   - '#'     -> hash
+   - '!'     -> bang, exclamation mark
 
    For example:
 
