@@ -21,7 +21,8 @@
    B. Christofani has gone as far as to write complex Brainfuck files
    in a literate programming style, with code and documentation for it
    interleaved together. This style puts too much restrictions on the
-   prose, removing all the dots and commas.]
+   prose, in particular by removing all the dots, hyphens, and commas
+   critical to one's understanding of written text.]
 
   [1.2 COMMENTS
 
@@ -70,7 +71,7 @@
    cell #1=Justice, cell #2=Suh
 
    Out of those, most are only usable inside comment loops, with the
-   notable exception of res0001 syntax being a comment loop in
+   notable exception of res0001 syntax being a comment loop
    itself. Syntax of Daniel B Christofani is inspiring in how it
    separates cell integer values (0), char values ('a'), and sequences
    of cells (...).]
@@ -89,7 +90,7 @@
    ^cell
 
    Both are good enough, but using apostrophes interferes with
-   character representation.]]
+   character representation seen in Daniel B Christofani's code.]]
 
  [2 BF.DOC
 
@@ -103,8 +104,10 @@
    nested comment loop, with the (all caps) title of the file
    following the opening bracket, and (all caps) (sub)section headings
    following their respective opening brackets with section numbers
-   prepended to them. Closing brackets SHOULD follow the last word of
-   the (sub)section, and, if the (sub)section is the last in the
+   prepended to them. Section numbers are 1-indexed and there is no
+   whitespace between the section opening bracket and section
+   number. Closing brackets SHOULD follow the last word of the
+   (sub)section, and, if the (sub)section is the last in the
    document/section/subsection, then closing brackets of those SHOULD
    compound together. A small example:
 
@@ -113,9 +116,9 @@
      ..
      [1 SECTION ONE
       ...
-      [1.1 SUBSECTION ONE-ONE
+      [1.1 SUBSECTION ONE POINT ONE
        ...]
-      [1.2 SUBSECTION ONE-TWO
+      [1.2 SUBSECTION ONE POINT TWO
        ...]]
      [2 SECTION TWO
       ...]]]
@@ -127,7 +130,8 @@
 
     It's often the case that one needs to enumerate certain values or
     list certain points when documenting the software. In such cases,
-    the most intuitive hyphen-space syntax is to be used:
+    the most intuitive hyphen-space unordered list (or number-indexed
+    ordered list) syntax is to be used:
 
     - This is the first-level item. Hyphen+space starting marker.
     - This is another first-level item, but spilling into next line:
@@ -138,8 +142,6 @@
     --- Third-level.
     ---- Fourth-level.
     - Et cetera.
-
-    See the example of the real nested list in the next section.
 
     [2.1.1.1 ORDERED/NUMBERED LISTS
 
@@ -159,27 +161,53 @@
      section-qualified reference, like 2.1.1.1.6, and use it to refer
      to the list item from outside the document.
 
+     .7 Ordered lists can be nested, much like unordered lists---the
+     child item number is just get an index based on the parent item
+     index:
+     .7.1 This nested item has a parent item index suffixed by a
+     nested item index (1-indexed).
+     7.2 Parent elements' leading dot can be omitted, but other
+     elements beyond it MUST NOT be omitted.
+
      Having the ordered lists spelled out, one can enjoy much more
      coherent documentation with more normative reference links to
-     point others to.]]]
+     point others to.
+
+     For the documentation writer/reader/referencer convenience,
+     unordered list can be implicitly ordered for greater linkability:
+
+     - This unordered list is numbered as .8 (due to previous list
+       ending in .7).
+     - This one is .9.
+     -- This is .9.1 (nested ordered 1-indexed list)]
+
+    See the example of the real nested lists in the next section.]]
 
   [2.2 COMMENT SYNTAX & ENCODING
 
    Comments conforming to bf.doc are to follow these rules:
-   - All comments MUST be lowercase ASCII text.
+   - All comments (and all the Brainfuck file text at that) MUST be
+   lowercase ASCII text.
+   -- In case one needs non-ASCII text in the file, a proper ASCII
+   encoding should be used, like ArmSCII for Armenian or Romaji for
+   Japanese.
    - File-level comment MUST belong to a comment loop, conventional
    for other BF codebases.
    - Block-level comments SHOULD precede the block.
-   -- OPTIONALLY, end those with a colon
+   -- OPTIONALLY, end those with a colon to indicate that what follows
+   is a block (akin to Python block syntax.)
    -- Loop header comments SHOULD follow the opening bracket.
    --- Closing bracket SHOULD have the exact same comment, but with
-   "ends" appended to it, as in "[ main loop" -> "] main loop
-   ends".
+   "ends" appended to it, as in
+   [bf:
+    [ main loop
+     ->
+    ] main loop ends]
    - Line-level comments MUST directly follow the code.
-   - Comments (be it loop headers, block comments, or line comments)
+   - Line-level comments (be it loop headers, block comments, or line comments)
    SHOULD start with a space, separating them from the commands.
-   - Comments SHOULD always end with a newline. No comment-code
-   mixing.
+   - Comments SHOULD always end with a newline. Comment and code
+   SHOULD NOT be mixed unless direly needed.
 
    Comments MUST use spelled out encoding without parentheses and with
    spaces between the encoded character and surrounding text. The list
@@ -197,38 +225,50 @@
    For example:
 
    [bf:
-    [-] empty the character (taken from https://whatever minus website dot com)]]
+    [-] empty the cell (taken from https://whatever minus website dot com)]]
 
   [2.3 CODE/VERBATIM BLOCKS
 
    All code/verbatim blocks MUST be wrapped into a comment loop of
-   their own, with the language/type of code as the loop header. For
-   example:
+   their own, with the language/type of code as the loop header, with
+   no space between the comment loop opening bracket and the
+   language/type marker. For example:
 
    [bf:
     +[>+]]
 
    Such a convention ensures that all the elements of the code block
-   are self-contained and clear about which language they are written
-   in.]
+   are self-contained and clear about which language/format they are
+   written in.]
 
   [2.4 MEMORY LAYOUTS
 
    Given the complexity of memory layouts that should be represented,
    bf.doc adopts an exhaustive memory representation syntax that MUST
    be followed in program/library documentation:
-   [0]     : a cell with a numeric value equal to the number
-   ['a']   : a cell with a value equal to the char
-   [a]     : a cell with a variable in it
-   [...]   : an arbitrary sequence of cells with whatever (unimportant) values
-   [x...]  : a variable holding a sequence of null-terminated cells (a string)
-   [^d]    : a cell with the pointer on it
-   [^x...] : a sequence of cells (string) with the pointer in the beginning
-   [x^...] : a sequence of cells (string) with the pointer in the end
+   - [0]     : a cell with a numeric value equal to the number.
+   - ['a']   : a cell with a value equal to the char.
+   - [a]     : a cell with a variable in it.
+   - [...]   : an arbitrary sequence of cells with whatever (unimportant) values.
+   - [x...]  : a variable holding a sequence of null-terminated cells (a string).
+   - [^d]    : a cell with the pointer on it.
+   - [^x...] : a sequence of cells (string) with the pointer in the beginning.
+   - [x^...] : a sequence of cells (string) with the pointer in the end.
+   - [x...^] : ditto.
 
    In the cases where it's obvious that cell values are characters,
    it's possible to omit the single quotes, as in
    [h][e][l][l][o] == ['h']['e']['l']['l']['o']
+
+   In the cases where it's obvious that a bracketed sequence is a
+   sequence of characters, one can list all the characters in a single
+   set of brackets without single quotes or only using single/double
+   quotes around the sequence contents:
+   [hello]
+   == ["hello"]
+   == ['hello']
+   == [h][e][l][l][o]
+   == ['h']['e']['l']['l']['o']
 
    This syntax is quite similar to Daniel B Cristofani one, but wraps
    all cells into square brackets. Because of this, memory layout
