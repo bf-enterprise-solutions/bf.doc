@@ -187,7 +187,7 @@
 
    Comments conforming to bf.doc are to follow these rules:
    - All comments (and all the Brainfuck file text at that) MUST be
-   lowercase ASCII text.
+   lowercase 7-bit ASCII text.
    -- In case one needs non-ASCII text in the file, a proper ASCII
    encoding should be used, like ArmSCII for Armenian or Romaji for
    Japanese.
