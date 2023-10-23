@@ -209,6 +209,23 @@
    - Comments SHOULD always end with a newline. Comment and code
    SHOULD NOT be mixed unless direly needed.
 
+   Comments documenting lines/blocks with cell initialization or
+   modification SHOULD list the value in that cell as:
+   - An OPTIONAL numeric value.
+   -- As decimal number.
+   -- Or as hexadecimal number (that MUST be prefixed with an
+   unambiguous prefix like "0x", "x", "h", or or hash sign).
+   -- Or any other base given (MUST have an unambiguous base
+   indication).
+   - An OPTIONAL display char corresponding to it, in single quotes.
+   -- For control characters, the display char is OPTIONAL.
+   -- For non-graphic characters, an existing C-like escape sequence
+   like '\n' MAY be used.
+   -- For any character, an unambiguous spelled out name might be
+   used.
+   -- For characters that might be interpreted as commands, an
+   encoding below SHOULD be used.
+
    Comments MUST use spelled out encoding without parentheses and with
    spaces between the encoded character and surrounding text. The list
    of characters to encode is:
